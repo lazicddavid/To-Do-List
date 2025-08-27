@@ -12,7 +12,6 @@ body {
 }
 
 .input {
-  padding: 30px 80px;
-  height: 30px;
-  width: 80px;
+  border: none;
+  padding: 25px 55px;
 }
