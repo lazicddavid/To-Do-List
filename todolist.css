@@ -22,6 +22,6 @@ body {
   padding: 25px 55px;
 }
 
-
-
-container
+container {
+  margin: 0 auto;
+}
