@@ -9,3 +9,59 @@
 /*
 const randomID = crypto.randomUUID();
 console.log(randomID);*/
+
+const input = document.getElementById("todoInput");
+const list = document.getElementById("todoList");
+
+let todos = [];
+let nextId = 0;
+
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    const value = input.value.trim();
+    if (!value) return;
+
+    todos.push({ id: nextId++, text: value });
+
+    input.value = "";
+
+    render();
+  }
+});
+
+list.addEventListener("click", (e) => {
+  e.preventDefault();
+  const trashBtn = e.target.closest(".btn-trash");
+  if (!trashBtn) return;
+
+  const id = Number(trashBtn.dataset.id);
+  todos = todos.filter((niz) => niz.id !== id);
+  render();
+});
+
+function render() {
+  list.innerHTML = "";
+  todos.forEach((niz) => {
+    const li = document.createElement("li");
+    li.className = "todo-item";
+
+    const p = document.createElement("p");
+    p.className = "todo-text";
+    p.textContent = niz.text;
+
+    const btn = document.createElement("button");
+    btn.className = "btn-trash";
+    btn.dataset.id = niz.id;
+
+    btn.innerHTML = `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9 3h6l1 2h4v2H4V5h4l1-2zm1 8h2v7h-2v-7zm4 0h2v7h-2v-7zM7 11h2v7H7v-7z"/>
+      </svg>
+    `;
+
+    li.appendChild(p);
+    li.appendChild(btn);
+    list.appendChild(li);
+  });
+}
