@@ -15,7 +15,7 @@ const list = document.getElementById("todoList");
 
 let todos = [];
 let nextId = 0;
-
+//uraditi ovo sa Submit, tj napravi formu i na formu dodati submit event
 input.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     e.preventDefault();
@@ -39,6 +39,10 @@ list.addEventListener("click", (e) => {
   todos = todos.filter((niz) => niz.id !== id);
   render();
 });
+//doraditi render da radi sa innerHtml direktno na li
+//dodati check box na svaki To-do
+//kad se klikne na taj checkbox, todo treba da postane uradjen
+//i na ekranu, da se precrta tekst
 
 function render() {
   list.innerHTML = "";
