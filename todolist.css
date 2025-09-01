@@ -75,5 +75,6 @@ body {
   height: 18px;
   fill: #fff;
 }
-
-body 
+.btn-trash:hover {
+  color: #b9ff33;
+}
