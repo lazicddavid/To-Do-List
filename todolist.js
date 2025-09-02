@@ -83,6 +83,16 @@ function render() {
   });
 }
 
+// >>> DODATO: helper za bezbedan prikaz teksta u innerHTML
+function escapeHtml(str) {
+  return String(str)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
 //doraditi render da radi sa innerHtml direktno na li
 //dodati check box na svaki To-do
 //kad se klikne na taj checkbox, todo treba da postane uradjen
