@@ -13,19 +13,6 @@ body {
   font-family: Arial, sans-serif;
   padding: 40px 16px;
 }
-/*
-.input {
-  width: 100%;
-  padding: 18px 20px;
-  border: none;
-  border-top-left-radius: 14px;
-  border-top-right-radius: 14px;
-  background: #fff;
-  font-size: 20px;
-  outline: none;
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.25);
-  margin-bottom: 10px;
-}*/
 
 #todoList {
   list-style: none;
@@ -60,7 +47,7 @@ body {
   height: 34px;
   border-radius: 6px;
   border: 1px solid #111;
-  background: red;
+  background: rgb(255, 153, 0);
   cursor: pointer;
 }
 
