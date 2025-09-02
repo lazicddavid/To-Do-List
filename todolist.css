@@ -62,7 +62,6 @@ body {
   border: 1px solid #111;
   background: red;
   cursor: pointer;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
 }
 
 .btn-trash svg {
@@ -70,19 +69,13 @@ body {
   height: 18px;
   fill: #fff;
 }
-.btn-trash:hover {
-  background-color: #252d17;
-  color: #252d17;
-}
 
-/* checkbox pored teksta */
 .todo-check {
   width: 18px;
   height: 18px;
   cursor: pointer;
 }
 
-/* precrtaj uradjene */
 .todo-text.done {
   text-decoration: line-through;
   opacity: 0.6;
@@ -91,12 +84,11 @@ body {
 .container {
   width: 420px;
   max-width: 100%;
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.25);
+
   border-radius: 14px;
-  overflow: hidden; /* da se spoje ivice */
+  overflow: hidden;
 }
 
-/* Input sada bez donjeg margina, jer lista ide odmah ispod */
 .input {
   width: 100%;
   padding: 18px 20px;
@@ -104,12 +96,4 @@ body {
   font-size: 20px;
   outline: none;
   display: block;
-}
-
-/* Lista deo "kutije" ispod inputa */
-#todoList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  background: #fffa00;
 }

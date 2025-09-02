@@ -16,20 +16,17 @@ const list = document.getElementById("todoList");
 let todos = [];
 let nextId = 0;
 
-// Dodavanje novog todo-a preko forme
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const value = input.value.trim();
   if (!value) return;
 
-  // start from empty array, push input, render from array
   todos.push({ id: nextId++, text: value, done: false });
 
   input.value = "";
   render();
 });
 
-// Delegacija za brisanje (kantica)
 list.addEventListener("click", (e) => {
   const trashBtn = e.target.closest(".btn-trash");
   if (!trashBtn) return;
@@ -39,7 +36,7 @@ list.addEventListener("click", (e) => {
   render();
 });
 
-// Delegacija za čekiranje (checkbox)
+/* cekiranje*/
 list.addEventListener("change", (e) => {
   const checkbox = e.target.closest(".todo-check");
   if (!checkbox) return;
@@ -59,38 +56,36 @@ function render() {
     const li = document.createElement("li");
     li.className = "todo-item";
 
-    // innerHTML direktno na li (kako si tražio)
     li.innerHTML = `
-      <label style="display:flex; align-items:center; gap:12px; flex:1;">
-        <input
-          type="checkbox"
-          class="todo-check"
-          data-id="${t.id}"
-          ${t.done ? "checked" : ""}
-          aria-label="Mark as done"
-        />
-        <p class="todo-text ${t.done ? "done" : ""}">${escapeHtml(t.text)}</p>
-      </label>
+      <input type="checkbox" class="todo-check" data-id="${t.id}" ${
+      t.done ? "checked" : ""
+    }>
+     <span class="todo-text ${t.done ? "done" : ""}">${t.text}</span>
 
-      <button class="btn-trash" data-id="${t.id}" aria-label="Delete todo">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M9 3h6l1 2h4v2H4V5h4l1-2zm1 8h2v7h-2v-7zm4 0h2v7h-2v-7zM7 11h2v7H7v-7z"/>
-        </svg>
-      </button>
+      <button class="btn-trash" data-id="${t.id}">🗑</button>
     `;
 
     list.appendChild(li);
   });
 }
 
-// >>> DODATO: helper za bezbedan prikaz teksta u innerHTML
-function escapeHtml(str) {
-  return String(str)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
+function render() {
+  list.innerHTML = "";
+
+  todos.forEach((t) => {
+    const li = document.createElement("li");
+    li.className = "todo-item";
+
+    li.innerHTML = `
+      <input type="checkbox" class="todo-check" data-id="${t.id}" ${
+      t.done ? "checked" : ""
+    }>
+      <span class="todo-text ${t.done ? "done" : ""}">${t.text}</span>
+      <button class="btn-trash" data-id="${t.id}">🗑</button>
+    `;
+
+    list.appendChild(li);
+  });
 }
 
 //doraditi render da radi sa innerHtml direktno na li
