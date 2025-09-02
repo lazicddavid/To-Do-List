@@ -79,3 +79,16 @@ body {
   background-color: #252d17;
   color: #252d17;
 }
+
+/* checkbox pored teksta */
+.todo-check {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* precrtaj uradjene */
+.todo-text.done {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
