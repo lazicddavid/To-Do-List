@@ -12,6 +12,7 @@ console.log(randomID);*/
 
 const input = document.getElementById("todoInput");
 const list = document.getElementById("todoList");
+const form = document.getElementById("todoForm");
 
 let todos = [];
 let nextId = 0;

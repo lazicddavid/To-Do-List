@@ -7,10 +7,17 @@
     <title>To do list</title>
   </head>
   <body>
-    <div class="todoForm">
-      <input class="input" id="todoInput" placeholder="Enter your task..." />
-      <ul id="todoList"></ul>
-    </div>
+    <form id="todoForm" class="todoForm" autocomplete="off">
+      <input
+        id="todoInput"
+        class="input"
+        type="text"
+        placeholder="Enter your task..."
+      />
+    </form>
+
+    <ul id="todoList"></ul>
+
     <script src="todolist.js"></script>
   </body>
 </html>
