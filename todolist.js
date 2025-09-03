@@ -20,30 +20,34 @@ form.addEventListener("submit", (e) => {
   if (!value) return;
 
   todos.push({ id: nextId++, text: value, done: false });
+
+
+
+  .
   input.value = "";
   render();
 });
-
+//UMESTO smeca i checkbox Id-a, zakaciti ID na listelement i procitati ga jednom uz pomoc closest-a
+//napraviti  varijablu za to-do text input i popuni je preko addEventList.
 list.addEventListener("click", (e) => {
   const trashBtn = e.target.closest(".btn-trash");
-  if (!trashBtn) return;
 
-  const id = Number(trashBtn.dataset.id);
-  todos = todos.filter((t) => t.id !== id);
-  render();
-});
-
-/*cekiranje taska*/
-list.addEventListener("change", (e) => {
+  if (trashBtn) {
+    const id = Number(trashBtn.dataset.id);
+    todos = todos.filter((t) => t.id !== id);
+    render();
+    return;
+  }
   const checkbox = e.target.closest(".todo-check");
-  if (!checkbox) return;
+  if (checkbox) {
+    const id = Number(checkbox.dataset.id);
+    const todo = todos.find((t) => t.id === id);
+    if (!todo) return;
 
-  const id = Number(checkbox.dataset.id);
-  const todo = todos.find((t) => t.id === id);
-  if (!todo) return;
+    todo.done = checkbox.checked;
 
-  todo.done = checkbox.checked;
-  render();
+    render();
+  }
 });
 
 function render() {
