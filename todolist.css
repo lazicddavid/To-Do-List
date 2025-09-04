@@ -85,5 +85,6 @@ body {
 
 input {
   display: block;
+  display: flex;
   outline: auto;
 }
