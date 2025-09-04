@@ -83,5 +83,6 @@ body {
   display: block;
 }
 
-
-input
+input {
+  display: block;
+}
