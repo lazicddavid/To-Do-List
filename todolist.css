@@ -1,7 +1,4 @@
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 body {
@@ -81,10 +78,4 @@ body {
   font-size: 20px;
   outline: none;
   display: block;
-}
-
-input {
-  display: block;
-  display: flex;
-  outline: auto;
 }
