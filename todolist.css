@@ -84,6 +84,7 @@ body {
 }
 
 .container {
+  width: ;
   flex-direction: ;
   display: flex;
   align-self: start;
