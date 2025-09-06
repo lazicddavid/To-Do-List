@@ -21,9 +21,6 @@ form.addEventListener("submit", (e) => {
 
   todos.push({ id: nextId++, text: value, done: false });
 
-
-
-  .
   input.value = "";
   render();
 });
@@ -59,7 +56,7 @@ function render() {
       t.done ? "checked" : ""
     }>
         <span class="todo-text ${t.done ? "done" : ""}">${t.text}</span>
-        <button class="btn-trash" type="button" data-id="${t.id}">
+        <button class="btn-trash" data-id="${t.id}">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
             <path d="M136.7 5.9L128 32 32 32C14.3 32 0 46.3 0 64S14.3 96 32 96l384 0c17.7 
             0 32-14.3 32-32s-14.3-32-32-32l-96 0-8.7-26.1C306.9-7.2 294.7-16 
@@ -72,7 +69,6 @@ function render() {
     list.appendChild(li);
   });
 }
-
 
 //doraditi render da radi sa innerHtml direktno na li
 //dodati check box na svaki To-do
