@@ -13,10 +13,10 @@ const list = document.getElementById("todoList");
 let todos = [];
 let nextId = 0;
 
-// 2) Varijabla za tekst + punjenje preko addEventListener-a
+//Varijabla za tekst preko addEventListener
 let todoText = "";
 input.addEventListener("input", (e) => {
-  todoText = e.target.value; // ne trimujemo ovde, nego pri submitu
+  todoText = e.target.value;
 });
 
 form.addEventListener("submit", (e) => {
@@ -27,28 +27,25 @@ form.addEventListener("submit", (e) => {
 
   todos.push({ id: nextId++, text: value, done: false });
 
-  // reset input + varijable
   input.value = "";
   todoText = "";
 
   render();
 });
 
-// 1) Delegacija: čitamo ID jednom sa najbližeg LI elementa
+//closest
 list.addEventListener("click", (e) => {
   const li = e.target.closest("li.todo-item");
   if (!li) return;
 
   const id = Number(li.dataset.id);
 
-  // klik na dugme za brisanje
   if (e.target.closest(".btn-trash")) {
     todos = todos.filter((t) => t.id !== id);
     render();
     return;
   }
 
-  // klik na checkbox (promena stanja)
   const checkbox = e.target.closest(".todo-check");
   if (checkbox) {
     const todo = todos.find((t) => t.id === id);
@@ -63,7 +60,7 @@ function render() {
   todos.forEach((t) => {
     const li = document.createElement("li");
     li.className = "todo-item";
-    li.dataset.id = t.id; // <-- ID kačen na LI (ne na dugme/checkbox)
+    li.dataset.id = t.id;
 
     li.innerHTML = `
       <input type="checkbox" class="todo-check" ${t.done ? "checked" : ""}>
