@@ -6,6 +6,14 @@
 //prilikom dodavanja to do u niz, napravi za svaki todo ID (pogledaj crypto.randomuuid
 //prilikom postavljanja to do na ekran, zakaci ID todo-a na list element
 //kad kliknem na to do, procitaj taj ID i to je ID todo-a koji treba da se izbrise
+//doraditi render da radi sa innerHtml direktno na li
+//dodati check box na svaki To-do
+//kad se klikne na taj checkbox, todo treba da postane uradjen
+//i na ekranu, da se precrta tekst
+console.log("---------");
+//UMESTO smeca i checkbox Id-a, zakaciti ID na listelement i procitati ga jednom uz pomoc closest-a
+//napraviti  varijablu za to-do text input i popuni je preko addEventList.
+
 const form = document.getElementById("todoForm");
 const input = document.getElementById("todoInput");
 const list = document.getElementById("todoList");
@@ -76,10 +84,5 @@ function render() {
   });
 }
 
-//doraditi render da radi sa innerHtml direktno na li
-//dodati check box na svaki To-do
-//kad se klikne na taj checkbox, todo treba da postane uradjen
-//i na ekranu, da se precrta tekst
-console.log("---------");
-//UMESTO smeca i checkbox Id-a, zakaciti ID na listelement i procitati ga jednom uz pomoc closest-a
-//napraviti  varijablu za to-do text input i popuni je preko addEventList.
+//pogledaj mouseOver i mouseEnter eventove
+//pogledaj input typeColor
