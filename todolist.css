@@ -83,5 +83,6 @@ body {
 }
 
 .container {
+  border-radius: 14px;
   width: 420px;
 }
